@@ -4,7 +4,7 @@ name: hyprblue
 description: This is a custom Fedora Silverblue image with Hyprland WM.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+#base-image: ghcr.io/ublue-os/silverblue-main
 base-image: ghcr.io/wayblueorg/hyprland
 image-version: latest
 
