@@ -1,3 +1,0 @@
-#!/usr/bin/sh
-# Xsetup - run as root before the logon dialog appears
-setxkbmap be
