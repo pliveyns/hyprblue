@@ -1,0 +1,46 @@
+type: default-flatpaks
+notify: true
+system:
+#  repo-url:
+#  repo-name:
+  install:
+    # Internet
+    - org.mozilla.firefox                  # Firefox Internet browser
+    - io.gitlab.librewolf-community        # LibreWolf privacy browser
+    - org.filezillaproject.Filezilla       # Filezilla ftp; scp; sftp client
+    - nz.mega.MEGAsync                     # MEGAsync mega client
+    # Phote, Music & Video
+    #- org.gnome.Loupe                      # Loupe image viewer
+    #- org.gnome.Snapshot                   # Gnome Camera
+    #- org.gnome.Photos                     # Gnome Photos
+    #- io.mpv.Mpv                           # Mpv movie player
+    - com.github.rafostar.Clapper          # Video Player
+    - fr.handbrake.ghb                     # Video Transcoder
+    - com.spotify.Client                   # Online Music Streaming
+    # Office
+    - org.libreoffice.LibreOffice          # The LibreOffice productivity suite
+    #- org.gnome.Papers                     # Documents reader
+    - com.logseq.Logseq                    # Connect your notes and knowledge
+    - com.github.johnfactotum.Foliate      # Foliate ebook reader
+    - com.github.marktext.marktext         # MarkText markdown tool
+    #- org.gnome.SimpleScan                 # Gnome Document Scanner
+    # Security
+    - com.bitwarden.desktop                # Bitwarden password tool
+    - org.cryptomator.Cryptomator          # Cryptomator Encryption tool
+    # Messaging
+    - social.whalebird.WhalebirdDesktop    # Whalebird mastodon client
+    - im.riot.Riot                         # Element app; matrix client
+    #- dev.vencord.Vesktop                  # Discord App
+    # Utilities
+    #- org.gnome.FileRoller                 # FileRoller (un)archive app
+    #- org.gnome.Extensions                 # Manage Gnome Extensions
+    #- com.mattjakeman.ExtensionManager     # Install and Manage Gnome extensions
+    #- org.gnome.Connections                # Gnome Connections
+    - org.fedoraproject.MediaWriter        # Fedora Media Writer
+    - com.github.tchx84.Flatseal           # Manage Flatpak Permissions
+    #- org.gnome.Calculator                 # Gnome Calculator
+    # DevOps
+    - com.vscodium.codium                  # VSCodium Code Editor
+  remove: []
+user: {}
+#  repo-name: 

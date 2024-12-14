@@ -1,0 +1,15 @@
+# common-packages.yml
+#
+type: rpm-ostree
+repos:
+  - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+keys:
+  - https://pkgs.tailscale.com/stable/fedora/repo.gpg
+install:
+  - langpacks-en       # English langpacks
+  - langpacks-en_GB    # Prefered language
+  #- alacritty          # Terminal emulator
+  - gparted            # Partitioning tool
+  - syncthing          # Easy folder sharing
+  - tailscale          # Tailscale zero trust vpn
+remove: []

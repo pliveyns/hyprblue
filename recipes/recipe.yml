@@ -1,3 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 # image will be published to ghcr.io/<user>/<name>
 name: hyprblue
 # description will be included in the image's metadata
@@ -25,8 +28,8 @@ modules:
     remove: []
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
-      # - firefox
-      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - firefox
+      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
@@ -44,6 +47,24 @@ modules:
       # Installing different branches of the same Flatpak is not supported.
       remove: []
       # - org.gnome.eog
+
+  - from-file: common-packages.yml
+
+  - from-file: common-flatpaks.yml
+
+  #- from-file: common-fonts.yml
+
+  #- from-file: common-bling.yml
+
+  #- from-file: common-chezmoi.yml
+
+  #- from-file: common-scripts.yml
+
+  #- from-file: common-justfiles.yml
+
+  #- from-file: common-systemd.yml
+
+  #- from-file: common-kvm.yml
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
