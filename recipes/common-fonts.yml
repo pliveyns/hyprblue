@@ -1,0 +1,9 @@
+# common-fonts.yml
+#
+type: fonts
+fonts:
+  nerd-fonts:
+    - FiraCode
+    - Hack
+    - Meslo
+  google-fonts: []
