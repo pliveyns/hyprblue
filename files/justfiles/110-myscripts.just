@@ -2,8 +2,8 @@
 
 my_install-ssh-keys:
   #!/usr/bin/env bash
-  curl http://192.168.148.28:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
-  curl http://192.168.148.28:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
+  curl http://192.168.148.24:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
+  curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
 
   chmod 600 ~/.ssh/id_rsa.pub
   chmod 600 ~/.ssh/id_rsa
@@ -50,7 +50,7 @@ my_default-browser-firefox:
 
 # Run the ansible postinstalscript
 my_postinstall:
-  curl http://192.168.148.28:8081/bootstrapublue | bash
+  curl http://192.168.148.24:8081/bootstrapublue | bash
 
 my_setup-chezmoi:
   systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
