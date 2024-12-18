@@ -1,0 +1,5 @@
+type: justfiles
+validate: false
+include:
+  - 110-myscripts.just
+  - 120-tailscale.just
