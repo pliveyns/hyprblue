@@ -62,6 +62,8 @@ modules:
 
   - from-file: common-justfiles.yml
 
+  - from-file: common-brew.yml
+
   #- from-file: common-systemd.yml
 
   #- from-file: common-kvm.yml
