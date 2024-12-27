@@ -8,8 +8,9 @@ keys:
 install:
   - langpacks-en       # English langpacks
   - langpacks-en_GB    # Prefered language
-  #- alacritty          # Terminal emulator
+  - alacritty          # Terminal emulator
   - gparted            # Partitioning tool
   - syncthing          # Easy folder sharing
   - tailscale          # Tailscale zero trust vpn
+  - cascadia-fonts-all # Cascadia fonts
 remove: []
