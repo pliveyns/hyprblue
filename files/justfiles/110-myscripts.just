@@ -1,5 +1,6 @@
 # vim: set ft=make :
 
+[group('MyJusts')]
 my_install-ssh-keys:
   #!/usr/bin/env bash
   curl http://192.168.148.24:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
@@ -19,6 +20,7 @@ my_install-ssh-keys:
   chmod 600 ~/.ssh/known_hosts
 
 # Install bluebox toolbox: ghcr.io/pliveyns/bluebox
+[group('MyJusts')]
 my_toolbox-bluebox:
   #!/bin/sh
   # should not run if the toolbox already exists
@@ -31,6 +33,7 @@ my_toolbox-bluebox:
     toolbox create -y -i ghcr.io/pliveyns/bluebox -c bluebox
   fi
 
+[group('MyJusts')]
 my_toolbox-iotbox:
   #!/bin/sh
   # should not run if the toolbox already exists
@@ -69,35 +72,16 @@ my_toolbox-iotbox:
 #  fi
 
 # Set firefox as default default browser
+[group('MyJusts')]
 my_default-browser-firefox:
   xdg-settings set default-web-browser org.mozilla.firefox.desktop
 
 # Run the ansible postinstalscript
+[group('MyJusts')]
 my_postinstall:
   curl http://192.168.148.24:8081/bootstrapublue | bash
 
+[group('MyJusts')]
 my_setup-chezmoi:
   systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
-## Install nvchad
-#my_nvchad:
-#  #!/bin/sh
-#  # First check if nvim folder is not already existing
-#  if [ -d ~/.config/nvim/ ]
-#  then
-#    echo "Directory ~/.config/nvim/ already exists."
-#    echo "NvChad will not be installed."
-#  else
-#    echo "Installing NvChad for nvim"
-#    toolbox run --container bluebox git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-#  fi
 
-# Set firefox as default default browser
-my_default-browser-firefox:
-  xdg-settings set default-web-browser org.mozilla.firefox.desktop
-
-# Run the ansible postinstalscript
-my_postinstall:
-  curl http://192.168.148.24:8081/bootstrapublue | bash
-
-my_setup-chezmoi:
-  systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
