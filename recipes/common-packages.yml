@@ -13,5 +13,5 @@ install:
   - syncthing          # Easy folder sharing
   - tailscale          # Tailscale zero trust vpn
   - cascadia-fonts-all # Cascadia fonts
-  - fzf                # Needed for ujust?
+  #- fzf                # Needed for ujust?; Is now in the base image
 remove: []
