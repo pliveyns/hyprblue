@@ -3,7 +3,11 @@ install:
   #- bridge-utils      # network bridge for virtualisation; not really needed on a workstation
   #- vagrant-libvirt   # vagrant install        #Dependencies are broken
   - virt-install      # KVM virtualisation
-  - virt-manager      # grahical gui for kvm virtualisation
+  #- virt-manager      # grahical gui for kvm virtualisation; exists now as a flatpak
   - edk2-ovmf         # uefi for kvm guests
   - swtpm             # Software TPM for KVM
+  - libvirt
+  - libvirt-nss
+  - qemu-kvm
+  - guestfs-tools
 

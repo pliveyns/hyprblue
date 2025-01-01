@@ -19,7 +19,7 @@ system:
     - com.spotify.Client                   # Online Music Streaming
     # Office
     - org.libreoffice.LibreOffice          # The LibreOffice productivity suite
-    #- org.gnome.Papers                     # Documents reader
+    - org.gnome.Papers                     # Documents reader
     - com.logseq.Logseq                    # Connect your notes and knowledge
     - com.github.johnfactotum.Foliate      # Foliate ebook reader
     - com.github.marktext.marktext         # MarkText markdown tool
@@ -41,6 +41,9 @@ system:
     #- org.gnome.Calculator                 # Gnome Calculator
     # DevOps
     - com.vscodium.codium                  # VSCodium Code Editor
+    # Virtualisation
+    - org.virt_manager.virt-manager        # virt-manager
+    - org.virt_manager.virt-viewer         # Remote viewer
   remove: []
 user: {}
 #  repo-name: 
