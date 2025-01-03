@@ -1,10 +1,13 @@
 # vim: set ft=make :
 
 [group('MyJusts')]
-my_install-ssh-keys:
+install-ssh-keys:
   #!/usr/bin/env bash
   curl http://192.168.148.24:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
   curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
+
+  touch ~/.ssh/known_hosts
+	chmod 600 ~/.ssh known_hosts
 
   chmod 600 ~/.ssh/id_rsa.pub
   chmod 600 ~/.ssh/id_rsa
@@ -17,11 +20,9 @@ my_install-ssh-keys:
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
   fi
 
-  chmod 600 ~/.ssh/known_hosts
-
 # Install bluebox toolbox: ghcr.io/pliveyns/bluebox
 [group('MyJusts')]
-my_toolbox-bluebox:
+toolbox-bluebox:
   #!/bin/sh
   # should not run if the toolbox already exists
   toolbox list --containers | grep bluebox >& /dev/null
@@ -34,7 +35,7 @@ my_toolbox-bluebox:
   fi
 
 [group('MyJusts')]
-my_toolbox-iotbox:
+toolbox-iotbox:
   #!/bin/sh
   # should not run if the toolbox already exists
   toolbox list --containers | grep iotbox >& /dev/null
@@ -45,31 +46,6 @@ my_toolbox-iotbox:
     echo "Installing iotbox toolbx"
     toolbox create -y -i ghcr.io/pliveyns/iotbox -c iotbox
   fi
-
-#my_distrobox-kalibox:
-#  #!/bin/sh
-#  # should not run if the toolbox already exists
-#  distrobox list --root | grep kalibox >& /dev/null
-#  if [ $? -eq 0 ]
-#  then
-#    echo "The distrobox kalibox already exists and will not be installed"
-#  else
-#    echo "Installing kalibox distrobox"
-#    distrobox create --root --pull --yes --image ghcr.io/pliveyns/iotbox --name iotbox
-#  fi
-
-## Install nvchad
-#my_nvchad:
-#  #!/bin/sh
-#  # First check if nvim folder is not already existing
-#  if [ -d ~/.config/nvim/ ]
-#  then
-#    echo "Directory ~/.config/nvim/ already exists."
-#    echo "NvChad will not be installed."
-#  else
-#    echo "Installing NvChad for nvim"
-#    toolbox run --container bluebox git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-#  fi
 
 # Set firefox as default default browser
 [group('MyJusts')]
@@ -84,4 +60,13 @@ my_postinstall:
 [group('MyJusts')]
 my_setup-chezmoi:
   systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
+
+# Workaround for libvirt issues
+[group('MyJusts')]
+libvirt-workaround:
+	sudo groupadd -g 963 libvirt
+	sudo groupadd -g 107 qemu
+	sudo useradd -u 107 -g 107 -d / -s /usr/sbin/nologin qemu
+  sudo usermod -aG livirt ${USER}
+	sudo usermod -aG qemu ${USER}
 
