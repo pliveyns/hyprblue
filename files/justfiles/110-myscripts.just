@@ -7,7 +7,7 @@ install-ssh-keys:
   curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
 
   touch ~/.ssh/known_hosts
-	chmod 600 ~/.ssh known_hosts
+  chmod 600 ~/.ssh known_hosts
 
   chmod 600 ~/.ssh/id_rsa.pub
   chmod 600 ~/.ssh/id_rsa
@@ -64,9 +64,9 @@ my_setup-chezmoi:
 # Workaround for libvirt issues
 [group('MyJusts')]
 libvirt-workaround:
-	sudo groupadd -g 963 libvirt
-	sudo groupadd -g 107 qemu
-	sudo useradd -u 107 -g 107 -d / -s /usr/sbin/nologin qemu
+  sudo groupadd -g 963 libvirt
+  sudo groupadd -g 107 qemu
+  sudo useradd -u 107 -g 107 -d / -s /usr/sbin/nologin qemu
   sudo usermod -aG livirt ${USER}
-	sudo usermod -aG qemu ${USER}
+  sudo usermod -aG qemu ${USER}
 
