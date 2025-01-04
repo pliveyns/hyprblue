@@ -70,8 +70,3 @@ libvirt-workaround:
   sudo usermod -aG livirt ${USER}
   sudo usermod -aG qemu ${USER}
 
-# Install atuin
-[group('MyJusts')]
-  install-atuin:
-  curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-
