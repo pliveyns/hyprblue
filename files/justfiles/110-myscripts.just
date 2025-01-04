@@ -6,9 +6,6 @@ install-ssh-keys:
   curl http://192.168.148.24:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
   curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
 
-  touch ~/.ssh/known_hosts
-  chmod 600 ~/.ssh known_hosts
-
   chmod 600 ~/.ssh/id_rsa.pub
   chmod 600 ~/.ssh/id_rsa
 
@@ -19,6 +16,8 @@ install-ssh-keys:
   if ! ssh-keygen -F gitlab.com; then
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
   fi
+
+  chmod 600 ~/.ssh known_hosts
 
 # Install bluebox toolbox: ghcr.io/pliveyns/bluebox
 [group('MyJusts')]
