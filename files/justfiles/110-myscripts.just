@@ -17,7 +17,7 @@ install-ssh-keys:
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
   fi
 
-  chmod 600 ~/.ssh known_hosts
+  chmod 600 ~/.ssh/known_hosts
 
 # Install bluebox toolbox: ghcr.io/pliveyns/bluebox
 [group('MyJusts')]
