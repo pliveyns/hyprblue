@@ -10,9 +10,9 @@ system:
     - org.filezillaproject.Filezilla       # Filezilla ftp; scp; sftp client
     - nz.mega.MEGAsync                     # MEGAsync mega client
     # Phote, Music & Video
-    #- org.gnome.Loupe                      # Loupe image viewer
-    #- org.gnome.Snapshot                   # Gnome Camera
-    #- org.gnome.Photos                     # Gnome Photos
+    - org.gnome.Loupe                      # Loupe image viewer
+     org.gnome.Snapshot                   # Gnome Camera
+    - org.gnome.Photos                     # Gnome Photos
     #- io.mpv.Mpv                           # Mpv movie player
     - com.github.rafostar.Clapper          # Video Player
     - fr.handbrake.ghb                     # Video Transcoder
@@ -32,13 +32,13 @@ system:
     - im.riot.Riot                         # Element app; matrix client
     #- dev.vencord.Vesktop                  # Discord App
     # Utilities
-    #- org.gnome.FileRoller                 # FileRoller (un)archive app
+    - org.gnome.FileRoller                 # FileRoller (un)archive app
     #- org.gnome.Extensions                 # Manage Gnome Extensions
     #- com.mattjakeman.ExtensionManager     # Install and Manage Gnome extensions
     #- org.gnome.Connections                # Gnome Connections
     - org.fedoraproject.MediaWriter        # Fedora Media Writer
     - com.github.tchx84.Flatseal           # Manage Flatpak Permissions
-    #- org.gnome.Calculator                 # Gnome Calculator
+    - org.gnome.Calculator                 # Gnome Calculator
     # DevOps
     - com.vscodium.codium                  # VSCodium Code Editor
     # Virtualisation
