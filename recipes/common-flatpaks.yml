@@ -11,7 +11,7 @@ system:
     - nz.mega.MEGAsync                     # MEGAsync mega client
     # Phote, Music & Video
     - org.gnome.Loupe                      # Loupe image viewer
-     org.gnome.Snapshot                   # Gnome Camera
+    - org.gnome.Snapshot                   # Gnome Camera
     - org.gnome.Photos                     # Gnome Photos
     #- io.mpv.Mpv                           # Mpv movie player
     - com.github.rafostar.Clapper          # Video Player
