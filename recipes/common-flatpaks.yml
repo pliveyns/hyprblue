@@ -41,9 +41,6 @@ system:
     - org.gnome.Calculator                 # Gnome Calculator
     # DevOps
     - com.vscodium.codium                  # VSCodium Code Editor
-    # Virtualisation
-    #- org.virt_manager.virt-manager        # virt-manager
-    #- org.virt_manager.virt-viewer         # Remote viewer
   remove: []
 user: {}
 #  repo-name: 
