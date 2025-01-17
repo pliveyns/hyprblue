@@ -5,9 +5,15 @@ install-ssh-keys:
   #!/usr/bin/env bash
   curl http://192.168.148.24:8081/id_rsa.pub --create-dirs -o ~/.ssh/id_rsa.pub
   curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
+  curl http://192.168.148.24:8081/id_ed25519_gitlab.pub --create-dirs -o ~/.ssh/id_ed25519_gitlab.pub
+  curl http://192.168.148.24:8081/id_ed25519_gitlab --create-dirs -o ~/.ssh/id_ed25519_gitlab
+  curl http://192.168.148.24:8081/config --create-dirs -o ~/.ssh/config
 
   chmod 600 ~/.ssh/id_rsa.pub
   chmod 600 ~/.ssh/id_rsa
+  chmod 600 ~/.ssh/id_ed25519_gitlab.pub
+  chmod 600 ~/.ssh/id_ed25519_gitlab
+  chmod 600 ~/.ssh/config
 
   if ! ssh-keygen -F github.com; then
     ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -48,16 +54,16 @@ toolbox-iotbox:
 
 # Set firefox as default default browser
 [group('MyJusts')]
-my_default-browser-firefox:
+default-browser-firefox:
   xdg-settings set default-web-browser org.mozilla.firefox.desktop
 
 # Run the ansible postinstalscript
 [group('MyJusts')]
-my_postinstall:
+postinstall:
   curl http://192.168.148.24:8081/bootstrapublue | bash
 
 [group('MyJusts')]
-my_setup-chezmoi:
+setup-chezmoi:
   systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
 
 # Workaround for libvirt issues
