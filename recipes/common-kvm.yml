@@ -10,4 +10,4 @@ install:
   - libvirt-nss
   - qemu-kvm
   - guestfs-tools
-
+  - genisoimage
