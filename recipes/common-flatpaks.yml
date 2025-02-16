@@ -8,7 +8,7 @@ system:
     - org.mozilla.firefox                  # Firefox Internet browser
     - io.gitlab.librewolf-community        # LibreWolf privacy browser
     - org.filezillaproject.Filezilla       # Filezilla ftp; scp; sftp client
-    - nz.mega.MEGAsync                     # MEGAsync mega client
+    #- nz.mega.MEGAsync                     # MEGAsync mega client / Not available anymore on Flathub
     # Phote, Music & Video
     - org.gnome.Loupe                      # Loupe image viewer
     - org.gnome.Snapshot                   # Gnome Camera
