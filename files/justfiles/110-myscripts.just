@@ -1,5 +1,6 @@
 # vim: set ft=make :
 
+# Configure ssh keys
 [group('MyJusts')]
 install-ssh-keys:
   #!/usr/bin/env bash
@@ -7,12 +8,11 @@ install-ssh-keys:
   curl http://192.168.148.24:8081/id_rsa --create-dirs -o ~/.ssh/id_rsa
   curl http://192.168.148.24:8081/id_ed25519_gitlab.pub --create-dirs -o ~/.ssh/id_ed25519_gitlab.pub
   curl http://192.168.148.24:8081/id_ed25519_gitlab --create-dirs -o ~/.ssh/id_ed25519_gitlab
+  curl http://192.168.148.24:8081/id_ed25519_codeberg.pub --create-dirs -o ~/.ssh/id_ed25519_codeberg.pub
+  curl http://192.168.148.24:8081/id_ed25519_codeberg --create-dirs -o ~/.ssh/id_ed25519_codeberg
   curl http://192.168.148.24:8081/config --create-dirs -o ~/.ssh/config
 
-  chmod 600 ~/.ssh/id_rsa.pub
-  chmod 600 ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_ed25519_gitlab.pub
-  chmod 600 ~/.ssh/id_ed25519_gitlab
+  chmod 600 ~/.ssh/id*
   chmod 600 ~/.ssh/config
 
   if ! ssh-keygen -F github.com; then
@@ -21,6 +21,10 @@ install-ssh-keys:
 
   if ! ssh-keygen -F gitlab.com; then
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+  fi
+
+  if ! ssh-keygen -F codeberg.org; then
+    ssh-keyscan codeberg.org >> ~/.ssh/known_hosts
   fi
 
   chmod 600 ~/.ssh/known_hosts
@@ -39,6 +43,7 @@ toolbox-bluebox:
     toolbox create -y -i ghcr.io/pliveyns/bluebox -c bluebox
   fi
 
+# Install iotbox toolbox: ghcr.io/pliveyns/iotbox
 [group('MyJusts')]
 toolbox-iotbox:
   #!/bin/sh
