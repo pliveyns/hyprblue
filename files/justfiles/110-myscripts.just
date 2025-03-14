@@ -67,6 +67,7 @@ default-browser-firefox:
 postinstall:
   curl http://192.168.148.24:8081/bootstrapublue | bash
 
+# Setup dotfiles with chezmoi
 [group('MyJusts')]
 setup-chezmoi:
   systemctl enable --user --now chezmoi-init.service chezmoi-update.timer
